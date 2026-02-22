@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Global Wedding · prompt builder · mobile copy fix</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (extended for हिंदी/اردو) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* === all original styles kept exactly (including your 100+ country themes) === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #1a2b3c;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 40, 80, 0.1);
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 600;
+            background: linear-gradient(45deg, #1e3c5c, #9f7e3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo p {
+            color: #4a5f73;
+            font-size: 14px;
+        }
+
+        .global-badge {
+            display: flex;
+            gap: 20px;
+            background: linear-gradient(135deg, #1e3c5c, #2b4c6e);
+            padding: 10px 25px;
+            border-radius: 50px;
+            color: white;
+        }
+
+        .global-badge i {
+            color: #f4c542;
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            gap: 25px;
+        }
+
+        /* Form Panel */
+        .form-panel {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 40, 80, 0.1);
+            overflow: hidden;
+            border: 2px solid #9f7e3c;
+        }
+
+        .panel-header {
+            background: linear-gradient(135deg, #1e3c5c, #2b4c6e);
+            color: white;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #f4c542;
+        }
+
+        .panel-header h2 {
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        .panel-header i {
+            color: #f4c542;
+        }
+
+        .global-seal {
+            font-size: 24px;
+        }
+
+        /* Form Sections */
+        .form-sections {
+            padding: 20px;
+            max-height: 800px;
+            overflow-y: auto;
+        }
+
+        .section {
+            background: #f8fafd;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #c1b092;
+            transition: all 0.3s;
+        }
+
+        .section:hover {
+            box-shadow: 0 5px 20px rgba(159, 126, 60, 0.15);
+        }
+
+        .section-header {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            background: linear-gradient(135deg, #ffffff, #f5f9ff);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .section-header i {
+            color: #1e3c5c;
+            transition: transform 0.3s;
+        }
+
+        .section-content {
+            padding: 0 20px 20px 20px;
+            display: none;
+        }
+
+        .section.active .section-content {
+            display: block;
+        }
+
+        .section.active .section-header i {
+            transform: rotate(90deg);
+        }
+
+        /* Form Elements */
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            color: #1e3c5c;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #c1b092;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #1e3c5c;
+            box-shadow: 0 0 0 3px rgba(30, 60, 92, 0.1);
+        }
+
+        /* Special font preview for Hindi/Urdu */
+        .font-hindi {
+            font-family: 'Tiro Devanagari Hindi', serif;
+        }
+        .font-urdu {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            line-height: 1.8;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        /* Color Picker */
+        .color-picker-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .color-preview {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 2px solid #c1b092;
+            cursor: pointer;
+        }
+
+        .preset-colors {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .color-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.1);
+            border-color: #1e3c5c;
+        }
+
+        .color-dot.active {
+            border-color: #1e3c5c;
+            box-shadow: 0 0 0 2px #f4c542;
+        }
+
+        /* Function Card */
+        .function-card {
+            background: linear-gradient(135deg, #f5f9ff, #ffffff);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #c1b092;
+        }
+
+        .remove-function {
+            color: #b13e3e;
+            cursor: pointer;
+            float: right;
+        }
+
+        .add-function-btn {
+            background: linear-gradient(135deg, #f4c542, #e0b53a);
+            border: none;
+            color: #1e3c5c;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 10px;
+            border: 2px solid #1e3c5c;
+        }
+
+        /* Preview Panel */
+        .preview-panel {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 40, 80, 0.1);
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            border: 2px solid #9f7e3c;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f4c542;
+        }
+
+        .preview-header h3 {
+            color: #1e3c5c;
+        }
+
+        .preview-box {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 20px;
+            min-height: 600px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #f4c542;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            max-height: 700px;
+            border: 3px solid #1e3c5c;
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+            flex: 1;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent; /* mobile tap feedback */
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1e3c5c, #2b4c6e);
+            color: white;
+            border: 2px solid #f4c542;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 60, 92, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f4c542, #e0b53a);
+            color: #1e3c5c;
+            border: 2px solid #1e3c5c;
+        }
+
+        .btn-secondary:hover {
+            background: #fad05c;
+            transform: translateY(-2px);
+        }
+
+        /* Toast Message */
+        .toast-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            left: 20px;
+            max-width: 300px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1e3c5c, #2b4c6e);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            animation: slideIn 0.3s;
+            z-index: 9999;
+            border-left: 5px solid #f4c542;
+            pointer-events: none;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Divider */
+        .global-divider {
+            text-align: center;
+            margin: 10px 0;
+            color: #9f7e3c;
+            font-size: 20px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border: 3px solid #f4c542;
+            position: relative;
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f4c542;
+        }
+
+        .modal-header h3 {
+            color: #1e3c5c;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .close-modal {
+            color: #1e3c5c;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #f4c542;
+        }
+
+        .modal-body p {
+            color: #4a5f73;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .platform-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .platform-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            border: 2px solid #c1b092;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a2b3c;
+        }
+
+        .platform-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: #1e3c5c;
+        }
+
+        .platform-btn i {
+            font-size: 24px;
+        }
+
+        .platform-btn.chatgpt i {
+            color: #10a37f;
+        }
+
+        .platform-btn.gemini i {
+            color: #1e88e5;
+        }
+
+        .copy-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #c1b092;
+            text-align: center;
+        }
+
+        .copy-section small {
+            color: #4a5f73;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .copy-link-btn {
+            background: #f5f9ff;
+            border: 2px solid #c1b092;
+            border-radius: 30px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1e3c5c;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-link-btn:hover {
+            background: #1e3c5c;
+            color: white;
+            border-color: #f4c542;
+        }
+
+        /* MOBILE RESPONSIVE (unchanged) */
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .preview-panel {
+                position: relative;
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { max-width: 100%; }
+            .header { padding: 15px; border-radius: 12px; }
+            .logo h1 { font-size: 20px; }
+            .panel-header h2 { font-size: 16px; }
+            .form-sections { padding: 15px; max-height: none; }
+            .preview-box { min-height: 300px; max-height: 400px; font-size: 11px; }
+            .btn { width: 100%; font-size: 14px; padding: 12px; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 8px; }
+            .main-grid { gap: 10px; }
+            .panel-header { padding: 12px; }
+            .panel-header h2 { font-size: 15px; }
+            .form-control { font-size: 16px; padding: 12px; }
+            .radio-group { flex-direction: column; gap: 8px; }
+            .preview-panel { padding: 15px; border-radius: 15px; }
+            .preview-box { font-size: 10px; padding: 12px; min-height: 250px; }
+            .preview-actions { flex-direction: column; }
+            .btn { width: 100%; padding: 14px; font-size: 15px; }
+            .section-header { padding: 12px; font-size: 14px; }
+            .form-row { margin-bottom: 12px; }
+        }
+        @media (max-width: 360px) {
+            .logo h1 { font-size: 18px; }
+            .preview-box { font-size: 9px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Toast Message -->
+        <div class="toast-message" id="toast" onclick="this.style.display='none'">
+            <i class="fas fa-check-circle"></i> <span id="toast-message">Prompt copied!</span>
+        </div>
+
+        <!-- Modal for AI Platform Selection -->
+        <div id="aiModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-robot"></i> Choose AI Platform</h3>
+                    <span class="close-modal" onclick="closeModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Your wedding invitation prompt is ready! Select where you'd like to generate the image:</p>
+                    
+                    <div class="platform-buttons">
+                        <button class="platform-btn chatgpt" onclick="openChatGPT()">
+                            <i class="fab fa-openai"></i>
+                            <span>ChatGPT (Best Result)</span>
+                        </button>
+                        
+                        <button class="platform-btn gemini" onclick="openGemini()">
+                            <i class="fas fa-cloud"></i>
+                            <span>Google Gemini</span>
+                        </button>
+                    </div>
+                    
+                    <div class="copy-section">
+                        <small>Or just copy the prompt to use anywhere</small>
+                        <button class="copy-link-btn" onclick="copyPromptOnly()">
+                            <i class="fas fa-copy"></i> Copy Prompt Text
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <!-- <div class="header">
+            <div class="logo">
+                <h1>🌐 Global Wedding Invitation</h1>
+                <p>100+ cultural themes · हिंदी · اردو · 中文 · 日本語</p>
+            </div>
+            <div class="global-badge">
+                <i class="fas fa-globe"></i> <span>Any culture · Any style</span>
+            </div>
+        </div> -->
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left Form Panel -->
+            <div class="form-panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-sliders-h"></i> Customise your invitation</h2>
+                    <div class="global-seal">💒✨</div>
+                </div>
+
+                <div class="form-sections" id="formSections">
+                    <!-- Section 1: Basic Settings (unchanged) -->
+                    <div class="section active" id="section1">
+                        <div class="section-header" onclick="toggleSection(1)">
+                            <span><i class="fas fa-cog" style="margin-right: 10px; color: #1e3c5c;"></i> Basic Settings</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="section-content">
+                            <div class="form-row">
+                                <label class="form-label">Card Size</label>
+                                <div class="radio-group" style="margin-bottom:8px">
+                                    <label class="radio-option"><input type="radio" name="size" value="5x7 inch" onchange="toggleCustomSize(false); updatePrompt()" checked> 5x7 inch</label>
+                                    <label class="radio-option"><input type="radio" name="size" value="A6 (4x6 inch)" onchange="toggleCustomSize(false); updatePrompt()"> A6 (4x6 inch)</label>
+                                    <label class="radio-option"><input type="radio" name="size" value="Square 6x6 inch" onchange="toggleCustomSize(false); updatePrompt()"> Square 6x6 inch</label>
+                                    <label class="radio-option"><input type="radio" name="size" value="custom" id="customSizeRadio" onchange="toggleCustomSize(true); updatePrompt()"> Custom</label>
+                                </div>
+                                <div id="customSizeInput" style="display: none; margin-top:5px;">
+                                    <input type="text" class="form-control" id="customSizeValue" placeholder="e.g., 7x9 inch, 210x210 mm" value="7x9 inch" onkeyup="updatePrompt()">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Resolution</label>
+                                <select class="form-control" id="resolution" onchange="updatePrompt()">
+                                    <option value="4K print-ready">4K print-ready (300 dpi)</option>
+                                    <option value="HD digital">HD digital (72 dpi)</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Color Mode</label>
+                                <select class="form-control" id="colorMode" onchange="updatePrompt()">
+                                    <option value="CMYK for professional printing">CMYK (print)</option>
+                                    <option value="RGB for digital display">RGB (digital)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Country Themes (100+ styles, fully preserved) -->
+                    <div class="section" id="section2">
+                        <div class="section-header" onclick="toggleSection(2)">
+                            <span><i class="fas fa-map-marked-alt" style="margin-right: 10px; color: #1e3c5c;"></i> Country Theme (100+ Styles)</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="section-content">
+                            <div class="form-row">
+                                <label class="form-label">Select Cultural Theme</label>
+                                <select class="form-control" id="theme" onchange="updateThemeFromCountry(); updatePrompt()">
+                                    <optgroup label="🌎 AMERICAS (multiple variants per country)">
+                                        <option value="American East Coast: classic Nantucket navy, preppy stripes, lighthouse motifs" data-primary="#002868" data-secondary="#BF0A30">🇺🇸 USA – East Coast Prep</option>
+                                        <option value="American Western: rustic desert tones, cactus, cowboy boot motifs" data-primary="#8B4513" data-secondary="#F4A460">🇺🇸 USA – Western Rustic</option>
+                                        <option value="American Southern: magnolia blossoms, mint julep green, wrought iron" data-primary="#2E8B57" data-secondary="#FFFDD0">🇺🇸 USA – Antebellum</option>
+                                        <option value="American Southwest: turquoise, terra cotta, Navajo patterns" data-primary="#40E0D0" data-secondary="#CD5C5C">🇺🇸 USA – Pueblo</option>
+                                        <option value="Mexican: vibrant with papel picado, sugar skull motifs, marigolds" data-primary="#CE1126" data-secondary="#FCD116">🇲🇽 Mexico – Fiesta</option>
+                                        <option value="Mexican Hacienda: aged terracotta, wrought iron, potted cacti" data-primary="#B22222" data-secondary="#F4EBC3">🇲🇽 Mexico – Hacienda</option>
+                                        <option value="Brazilian: tropical with lush greenery, golden sand, samba flair" data-primary="#009C3B" data-secondary="#FFDF00">🇧🇷 Brazil – Tropical</option>
+                                        <option value="Brazilian Colonial: Portuguese azulejos, gold leaf baroque" data-primary="#1E3C5C" data-secondary="#FFD700">🇧🇷 Brazil – Colonial</option>
+                                        <option value="Canadian: rustic woodland with maple leaves, plaid, natural textures" data-primary="#FF0000" data-secondary="#FFFFFF">🇨🇦 Canada – Rustic</option>
+                                        <option value="Canadian First Nations: Haida art, raven motifs, abalone shell" data-primary="#2A2A2A" data-secondary="#4C8B8B">🇨🇦 Canada – Indigenous</option>
+                                        <option value="Peruvian: Andean with colorful textiles, llama motifs, earthy tones" data-primary="#D52B1E" data-secondary="#F0B80C">🇵🇪 Peru – Andean</option>
+                                        <option value="Argentinian: tango spirit with pampas grasses, gaucho details, deep blues" data-primary="#74ACDF" data-secondary="#FFFFFF">🇦🇷 Argentina – Pampas</option>
+                                        <option value="Colombian: coffee region with lush flora, colorful carts, warm earth" data-primary="#FCD116" data-secondary="#003893">🇨🇴 Colombia – Café</option>
+                                        <option value="Cuban: vintage Habana with classic cars, cigar tones, retro charm" data-primary="#002A8F" data-secondary="#CE1126">🇨🇺 Cuba – Vintage</option>
+                                        <option value="Chilean: Mapuche textiles, araucaria trees, glacial blue" data-primary="#D52B1E" data-secondary="#0039A6">🇨🇱 Chile – Mapuche</option>
+                                        <option value="Costa Rican: pura vida, lush rainforest, quetzal bird" data-primary="#002B7F" data-secondary="#CE1126">🇨🇷 Costa Rica – Tropical Paradise</option>
+                                        <option value="Guatemalan: vibrant huipil weavings, Mayan glyphs, quetzal feathers" data-primary="#4997D0" data-secondary="#C1001F">🇬🇹 Guatemala – Maya</option>
+                                    </optgroup>
+                                    <optgroup label="🌍 EUROPE (diverse regional styles)">
+                                        <option value="Italian: romantic Tuscan with vineyards, olive branches, rustic charm" data-primary="#008C45" data-secondary="#CD212A">🇮🇹 Italy – Tuscan</option>
+                                        <option value="Italian Amalfi: coastal lemon motifs, cerulean sea, majolica tiles" data-primary="#F5E56B" data-secondary="#0099CC">🇮🇹 Italy – Amalfi Coast</option>
+                                        <option value="French: chic Parisian with delicate lace, fleur-de-lis, pastels" data-primary="#002395" data-secondary="#ED2939">🇫🇷 France – Parisian</option>
+                                        <option value="French Provençal: lavender fields, sunflowers, rustic farmhouse" data-primary="#B186B1" data-secondary="#FFD700">🇫🇷 France – Provençal</option>
+                                        <option value="British: royal heritage with Union Jack accents, corgis, afternoon tea" data-primary="#012169" data-secondary="#C8102E">🇬🇧 UK – Royal</option>
+                                        <option value="British Country: Cotswolds stone, fox hunting, floral chintz" data-primary="#9F8B6E" data-secondary="#5A7247">🇬🇧 UK – Country Manor</option>
+                                        <option value="Greek: serene Mediterranean with whitewashed walls, blue domes, olive leaves" data-primary="#0D5EAF" data-secondary="#FFFFFF">🇬🇷 Greece – Aegean</option>
+                                        <option value="Greek Minoan: ancient frescoes, dolphins, ochre and crimson" data-primary="#B34D4D" data-secondary="#DAA520">🇬🇷 Greece – Minoan</option>
+                                        <option value="Spanish: passionate flamenco with ruffles, castanets, Moorish tiles" data-primary="#AA151B" data-secondary="#F1BF00">🇪🇸 Spain – Flamenco</option>
+                                        <option value="Spanish Andalusian: courtyard fountains, orange blossoms, arabesque" data-primary="#A52A2A" data-secondary="#D2B48C">🇪🇸 Spain – Andalucía</option>
+                                        <option value="Swedish: minimalist Nordic with birch wood, dala horses, clean lines" data-primary="#006AA7" data-secondary="#FECC02">🇸🇪 Sweden – Nordic</option>
+                                        <option value="Swedish Midsummer: flower crowns, maypole, soft pastels" data-primary="#009933" data-secondary="#FFB3B3">🇸🇪 Sweden – Midsummer</option>
+                                        <option value="German: romantic Rhine with castles, vineyards, folk embroidery" data-primary="#000000" data-secondary="#DD0000">🇩🇪 Germany – Rhine</option>
+                                        <option value="German Bavarian: alpine horns, edelweiss, beer garden" data-primary="#0066B3" data-secondary="#FFCC00">🇩🇪 Germany – Bavarian</option>
+                                        <option value="Irish: lush Celtic with clovers, harp motifs, earthy greens" data-primary="#169B62" data-secondary="#FF883E">🇮🇪 Ireland – Celtic</option>
+                                        <option value="Portuguese: maritime azulejos tiles, cork textures, Manueline details" data-primary="#006600" data-secondary="#FF0000">🇵🇹 Portugal – Azulejo</option>
+                                        <option value="Dutch: Delft blue pottery, windmills, soft pastel tulip fields" data-primary="#21468B" data-secondary="#FFFFFF">🇳🇱 Netherlands – Delft</option>
+                                        <option value="Swiss: Alpine elegance with edelweiss, snow-capped peaks, precision" data-primary="#FF0000" data-secondary="#FFFFFF">🇨🇭 Switzerland – Alpine</option>
+                                        <option value="Austrian: Viennese waltz with gold details, imperial crest, Sacher torte elegance" data-primary="#ED2939" data-secondary="#FFFFFF">🇦🇹 Austria – Imperial</option>
+                                        <option value="Danish: hygge-inspired with candlelight, modern minimalism, coastal hues" data-primary="#C8102E" data-secondary="#FFFFFF">🇩🇰 Denmark – Hygge</option>
+                                        <option value="Scottish: highland romance with tartan, thistles, misty lochs" data-primary="#0065BF" data-secondary="#FFFFFF">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland – Highland</option>
+                                        <option value="Norwegian: fjord magic, stave church woodcarvings, northern lights" data-primary="#BA0C2F" data-secondary="#003087">🇳🇴 Norway – Fjord</option>
+                                        <option value="Finnish: midnight sun, birch bark, Marimekko bold prints" data-primary="#003580" data-secondary="#FFFFFF">🇫🇮 Finland – Lakeland</option>
+                                        <option value="Icelandic: volcanic black sand, moss, aurora borealis" data-primary="#02529C" data-secondary="#DC143C">🇮🇸 Iceland – Glacial</option>
+                                        <option value="Polish: folk wycinanki papercuts, amber, Bolesławiec pottery" data-primary="#DC143C" data-secondary="#FFFFFF">🇵🇱 Poland – Folk</option>
+                                        <option value="Czech: Bohemian crystal, baroque, beer garden rustic" data-primary="#11457E" data-secondary="#E03A3E">🇨🇿 Czech – Bohemian</option>
+                                        <option value="Hungarian: paprika red, embroidery, Tokaj gold" data-primary="#436F4D" data-secondary="#CD2A3E">🇭🇺 Hungary – Magyar</option>
+                                        <option value="Croatian: Dubrovnik stone, Adriatic turquoise, lavender" data-primary="#FF0000" data-secondary="#0000FF">🇭🇷 Croatia – Dalmatian</option>
+                                    </optgroup>
+                                    <optgroup label="🌏 ASIA & MIDDLE EAST (extensive variants)">
+                                        <option value="Japanese: minimalist Zen with cherry blossoms, cranes, washi paper" data-primary="#BC002D" data-secondary="#FFFFFF">🇯🇵 Japan – Sakura</option>
+                                        <option value="Japanese Traditional: kimono patterns, gold leaf, lacquerware" data-primary="#9A2D3A" data-secondary="#E5B80B">🇯🇵 Japan – Kimono</option>
+                                        <option value="Chinese: imperial red and gold with dragons, peonies, clouds" data-primary="#DE2910" data-secondary="#FFDE00">🇨🇳 China – Imperial</option>
+                                        <option value="Chinese Shanghainese: Art Deco meets Shanghai romance, qipao patterns" data-primary="#AD0F27" data-secondary="#FFC55C">🇨🇳 China – Shanghai</option>
+                                        <option value="Korean: elegant with hanbok patterns, lotus blossoms, calligraphy" data-primary="#CD2E3A" data-secondary="#0047A0">🇰🇷 Korea – Hanbok</option>
+                                        <option value="Korean Modern: minimalist soju, moon jars, pastel" data-primary="#FF69B4" data-secondary="#87CEEB">🇰🇷 Korea – Contemporary</option>
+                                        <option value="Thai: ornate with gold temples, silk, lotus flowers" data-primary="#A51931" data-secondary="#F4C542">🇹🇭 Thailand – Golden</option>
+                                        <option value="Thai Lanna: northern Thai, lanterns, intricate silver" data-primary="#8B0000" data-secondary="#DAA520">🇹🇭 Thailand – Lanna</option>
+                                        <option value="Vietnamese: delicate with ao dai, lotus, bamboo motifs" data-primary="#DA251D" data-secondary="#FFFF00">🇻🇳 Vietnam – Lotus</option>
+                                        <option value="Turkish: Ottoman with Iznik tiles, tulips, gold embroidery" data-primary="#E30A17" data-secondary="#FFFFFF">🇹🇷 Turkey – Ottoman</option>
+                                        <option value="Lebanese: Levantine with cedar trees, intricate patterns, warm earth" data-primary="#ED1C24" data-secondary="#FFFFFF">🇱🇧 Lebanon – Cedar</option>
+                                        <option value="Indian Royal: opulent palace aesthetics, intricate gold filigree, jewel tones (ruby, emerald, sapphire), peacock motifs and rich silk textures, inspired by Loard Ram & Sita and Ram Mandir" data-primary="#E63946" data-secondary="#FFD700">🇮🇳 India – Royal </option>
+                                        <option value="Indian South: Kerala mural, temple gold, banana leaf" data-primary="#00843D" data-secondary="#FF9933">🇮🇳 India – Malabar</option>
+                                        <option value="Indian Vedic: lotus, cow motifs, sandalwood, auspicious red and gold" data-primary="#B31B1B" data-secondary="#FAB628">🇮🇳 India – Vedic</option>
+                                        <option value="Pakistani Royal: opulent palace aesthetics, intricate gold filigree, jewel tones (ruby, emerald, sapphire), peacock motifs and rich silk textures, inspired by Mughal & islam. The card is 4K print-ready, CMYK for professional printing" data-primary="#01411C" data-secondary="#FFFFFF">🇵🇰 Pakistan – Royal </option>
+                                        <option value="Pakistani Sindhi: ajrak patterns, embroidered mirrors, indigo" data-primary="#7B1113" data-secondary="#274E13">🇵🇰 Pakistan – Sindh</option>
+                                        <option value="Indonesian: Balinese with frangipani, batik, tropical rice terraces" data-primary="#FF0000" data-secondary="#FFFFFF">🇮🇩 Bali – Island</option>
+                                        <option value="Indonesian Javanese: batik parang, wayang puppets, gold" data-primary="#B8860B" data-secondary="#8B4513">🇮🇩 Indonesia – Java</option>
+                                        <option value="Filipino: Filipino fiesta with capiz shells, barong patterns, warm sunshine" data-primary="#0038A8" data-secondary="#FCD116">🇵🇭 Philippines – Fiesta</option>
+                                        <option value="Persian (Iranian): intricate paisley, Persian carpets, poetic calligraphy" data-primary="#239F40" data-secondary="#FFFFFF">🇮🇷 Iran – Persian</option>
+                                        <option value="Israeli: modern Mediterranean with pomegranates, olives, ancient mosaic" data-primary="#0038B8" data-secondary="#FFFFFF">🇮🇱 Israel – Canaan</option>
+                                        <option value="Jordanian: Bedouin desert motifs, Petra-inspired carvings, warm sands" data-primary="#CE1126" data-secondary="#FFFFFF">🇯🇴 Jordan – Petra</option>
+                                        <option value="Uzbek: Silk road with ikat fabrics, turquoise domes, pomegranates" data-primary="#0099B5" data-secondary="#CE1126">🇺🇿 Uzbekistan – Ikat</option>
+                                        <option value="Kazakh: steppe embroidery, yurt ornaments, eagle hunter" data-primary="#00AFCA" data-secondary="#FFFF00">🇰🇿 Kazakhstan – Steppe</option>
+                                        <option value="Sri Lankan: Kandyan dancers, lotus, cinnamon and sapphire" data-primary="#8D153A" data-secondary="#FFB81C">🇱🇰 Sri Lanka – Kandyan</option>
+                                        <option value="Nepalese: Himalayan prayer flags, mandala, rhododendron" data-primary="#DC143C" data-secondary="#003893">🇳🇵 Nepal – Himalayan</option>
+                                        <option value="Bhutanese: dragon motifs, geometric patterns, saffron" data-primary="#FECC00" data-secondary="#DA291C">🇧🇹 Bhutan – Druk</option>
+                                    </optgroup>
+                                    <optgroup label="🌏 OCEANIA & AFRICA (expanded)">
+                                        <option value="Australian: coastal chic with gum leaves, golden sand, ocean hues" data-primary="#00008B" data-secondary="#FFCD00">🇦🇺 Australia – Coastal</option>
+                                        <option value="Australian Outback: red center, spinifex, aboriginal dot painting" data-primary="#B3431B" data-secondary="#ED9B4A">🇦🇺 Australia – Outback</option>
+                                        <option value="Maori (NZ): tribal with koru spirals, black and white carving patterns" data-primary="#000000" data-secondary="#C8102E">🇳🇿 NZ – Maori</option>
+                                        <option value="South African: vibrant rainbow nation with protea flowers, geometric" data-primary="#007A4D" data-secondary="#FFB612">🇿🇦 South Africa – Rainbow</option>
+                                        <option value="South African Zulu: beadwork, shields, earthy and bold" data-primary="#A77B4D" data-secondary="#FFFFFF">🇿🇦 South Africa – Zulu</option>
+                                        <option value="Egyptian: pharaonic with pyramids, lotus, gold and lapis lazuli" data-primary="#C1272D" data-secondary="#FCD116">🇪🇬 Egypt – Pharaonic</option>
+                                        <option value="Ethiopian: Coptic crosses, coffee ceremonies, woven textures" data-primary="#078930" data-secondary="#FCDD09">🇪🇹 Ethiopia – Highlands</option>
+                                        <option value="Nigerian: Aso-oke fabrics, tribal masks, vibrant gele headwrap motifs" data-primary="#008753" data-secondary="#FFFFFF">🇳🇬 Nigeria – Aso-oke</option>
+                                        <option value="Kenyan: Maasai beadwork, savanna sunsets, acacia trees" data-primary="#006600" data-secondary="#FF0000">🇰🇪 Kenya – Savannah</option>
+                                        <option value="Ghanaian: Kente cloth woven patterns, rich gold, joyful symbolism" data-primary="#FCD116" data-secondary="#006B3F">🇬🇭 Ghana – Kente</option>
+                                        <option value="Moroccan: exotic with zellige tiles, lanterns, rich jewel tones" data-primary="#C1272D" data-secondary="#006233">🇲🇦 Morocco – Marrakech</option>
+                                        <option value="Fijian: island hibiscus, masi tapa cloth, turquoise lagoon" data-primary="#75AADB" data-secondary="#FCD116">🇫🇯 Fiji – Island Breeze</option>
+                                        <option value="Hawaiian: (US) tropical with plumeria, sea turtles, volcanic earth" data-primary="#BB133E" data-secondary="#FFDB00">🌺 Hawaiʻi – Aloha</option>
+                                        <option value="Pacific Islander: woven lauhala, ocean waves, star navigation" data-primary="#00247D" data-secondary="#FFFFFF">🌊 Polynesia – Wayfinding</option>
+                                        <option value="Tahitian: hibiscus, overwater bungalows, pearl shell" data-primary="#E31B23" data-secondary="#FEDD5C">🇵🇫 Tahiti – Moana</option>
+                                        <option value="Samoan: siapo cloth, turtle motifs, ocean blue" data-primary="#CE1126" data-secondary="#002B7F">🇼🇸 Samoa – Tatau</option>
+                                        <option value="Rwandan: agaseke baskets, gorilla motifs, vibrant greens" data-primary="#20603D" data-secondary="#FAD201">🇷🇼 Rwanda – Thousand Hills</option>
+                                        <option value="Malagasy: zebu horns, raphia weaving, baobab trees" data-primary="#EF3340" data-secondary="#00A859">🇲🇬 Madagascar – Baobab</option>
+                                    </optgroup>
+                                    <!-- total over 100 styles -->
+                                </select>
+                                <p style="font-size:12px; margin-top:5px;"><i class="fas fa-plus-circle"></i> 100+ cultural styles – pick your inspiration</p>
+                            </div>
+
+                            <div class="form-row">
+                                <label class="form-label">Primary Color (theme linked)</label>
+                                <div class="color-picker-group">
+                                    <input type="text" class="form-control" id="primaryColor" value="#1e3c5c" onkeyup="updatePrompt()">
+                                    <input type="color" id="primaryColorPicker" value="#1e3c5c" onchange="document.getElementById('primaryColor').value = this.value; updatePrompt();">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Secondary Color</label>
+                                <div class="color-picker-group">
+                                    <input type="text" class="form-control" id="secondaryColor" value="#f4c542" onkeyup="updatePrompt()">
+                                    <input type="color" id="secondaryColorPicker" value="#f4c542" onchange="document.getElementById('secondaryColor').value = this.value; updatePrompt();">
+                                </div>
+                            </div>
+                            <div class="preset-colors">
+                                <div class="color-dot" style="background: #1e3c5c;" onclick="setColors('#1e3c5c', '#f4c542')"></div>
+                                <div class="color-dot" style="background: #8B1E3F;" onclick="setColors('#8B1E3F', '#DAA520')"></div>
+                                <div class="color-dot" style="background: #006B3C;" onclick="setColors('#006B3C', '#FFD100')"></div>
+                                <div class="color-dot" style="background: #002868;" onclick="setColors('#002868', '#BF0A30')"></div>
+                                <div class="color-dot" style="background: #BC002D;" onclick="setColors('#BC002D', '#FFFFFF')"></div>
+                                <div class="color-dot" style="background: #E63946;" onclick="setColors('#E63946', '#FFD700')" title="Indian Royal"></div>
+                            </div>
+
+                            <div class="form-row">
+                                <label class="form-label">Background Texture</label>
+                                <select class="form-control" id="texture" onchange="updatePrompt()">
+                                    <option value="linen texture with natural fibers">Linen</option>
+                                    <option value="elegant satin weave">Satin</option>
+                                    <option value="handmade paper with flecks">Handmade paper</option>
+                                    <option value="wood grain rustic">Wood grain</option>
+                                    <option value="subtle damask pattern">Damask</option>
+                                    <option value="soft watercolor wash">Watercolor</option>
+                                    <option value="geometric tile pattern">Geometric tiles</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Border Style</label>
+                                <select class="form-control" id="border" onchange="updatePrompt()">
+                                    <option value="thin gold line with corner flourishes">Gold line & flourishes</option>
+                                    <option value="thick ornate frame with foliage">Ornate foliage</option>
+                                    <option value="simple clean border with shadow">Simple clean</option>
+                                    <option value="double border with pattern">Double border</option>
+                                    <option value="lace-inspired border">Lace pattern</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Central Motif</label>
+                                <select class="form-control" id="motif" onchange="updatePrompt()">
+                                    <option value="two wedding rings intertwined">Wedding rings</option>
+                                    <option value="bouquet of roses">Rose bouquet</option>
+                                    <option value="doves carrying olive branches">Doves</option>
+                                    <option value="heart with filigree">Heart filigree</option>
+                                    <option value="infinity knot">Infinity knot</option>
+                                    <option value="floral wreath">Floral wreath</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Layout</label>
+                                <select class="form-control" id="layout" onchange="updatePrompt()">
+                                    <option value="centered and symmetrical">✨ Centered</option>
+                                    <option value="asymmetrical modern">🍂 Asymmetrical</option>
+                                    <option value="vertical split with image">📄 Vertical split</option>
+                                    <option value="horizontal bands">📐 Horizontal bands</option>
+                                    <option value="frame within a frame">🖼️ Frame within frame</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Typography (with हिंदी & اردو) -->
+                    <div class="section" id="section3">
+                        <div class="section-header" onclick="toggleSection(3)"><span><i class="fas fa-pen-fancy" style="margin-right: 10px; color: #1e3c5c;"></i> Typography</span><i class="fas fa-chevron-right"></i></div>
+                        <div class="section-content">
+                            <div class="form-row"><label class="form-label">Font Style (15+ styles including Hindi/Urdu)</label>
+                                <select class="form-control" id="fontStyle" onchange="updatePrompt()">
+                                    <option value=" clean sans-serif like Helvetica for minimalist look ">🇬🇧 English</option>
+                                    <!-- <option value="modern Didot serif, high contrast and chic">🇫🇷 Didot (French)</option>
+                                    <option value="classic Garamond serif with old-style elegance">🇮🇹 Garamond</option>
+                                    <option value="elegant English Copperplate calligraphy with fine swashes">🇩🇪 Copperplate</option>
+                                    <option value="handwritten script with a personal touch">✍️ Handwritten</option>
+                                    <option value="bold slab serif for rustic feel">🪵 Slab serif</option>
+                                    <option value="ornate Victorian font with flourishes">🏛️ Victorian</option>
+                                    <option value="Japanese-inspired minimal calligraphy">🇯🇵 Japanese style</option>
+                                    <option value="Arabic-inspired calligraphic flourishes">🇦🇪 Arabic style</option>
+                                    <option value="Devanagari हिंदी elegant for a traditional Indian feel">🇮🇳 हिंदी · Tiro Devanagari</option>
+                                    <option value="Nastaliq اردو script with refined calligraphic strokes (Noto Nastaliq Urdu) perfect for Urdu wedding verses">🇵🇰 اردو · Nastaliq</option>
+                                    <option value="Bengali script with graceful curves, suitable for traditional Bengali invitations">🇧🇩 বাংলা · Bengali</option>
+                                    <option value="Gurmukhi script, clean and spiritual for Punjabi weddings">🇮🇳 Gurmukhi · Punjabi</option>
+                                    <option value="Tamil elegant serif, classical for South Indian ceremonies">🇮🇳 தமிழ் · Tamil</option>
+                                    <option value="Telugu script with rounded forms, traditional and festive">🇮🇳 తెలుగు · Telugu</option>
+                                    <option value="Kannada decorative, used for Karnataka weddings">🇮🇳 ಕನ್ನಡ · Kannada</option>
+                                    <option value="Malayalam calligraphic, for Kerala-style invitations">🇮🇳 മലയാളം · Malayalam</option>
+                                    <option value="Gujarati script, vibrant and ornamental">🇮🇳 ગુજરાતી · Gujarati</option>
+                                    <option value="Odia script with unique rounded shapes">🇮🇳 ଓଡ଼ିଆ · Odia</option>
+                                    <option value="Georgian elegant script for Caucasus region">🇬🇪 Georgian · Mkhedruli</option>
+                                    <option value="Armenian calligraphic, ancient and refined">🇦🇲 Armenian · Grabar</option>
+                                    <option value="Greek uncial style, for Mediterranean orthodox weddings">🇬🇷 Greek · Uncial</option>
+                                    <option value="Cyrillic ornate, for Russian/Serbian traditional cards">🇷🇺 Cyrillic · Ornate</option>
+                                    <option value="Amharic syllabic script, Ethiopian orthodox style">🇪🇹 Amharic · Fidel</option> -->
+                                </select>
+                            </div>
+                            <div class="form-row"><label class="form-label">Text Effect</label>
+                                <select class="form-control" id="textEffect" onchange="updatePrompt()">
+                                    <option value="shiny metallic gold foil">Gold foil</option>
+                                    <option value="elegant embossing">Embossed</option>
+                                    <option value="rose gold shimmer">Rose gold</option>
+                                    <option value="silver foil">Silver foil</option>
+                                    <option value="subtle letterpress">Letterpress</option>
+                                    <option value="traditional marbling effect">Marbling</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Wedding Details (unchanged) -->
+                    <div class="section" id="section4">
+                        <div class="section-header" onclick="toggleSection(4)"><span><i class="fas fa-heart" style="margin-right: 10px; color: #1e3c5c;"></i> Wedding Details</span><i class="fas fa-chevron-right"></i></div>
+                        <div class="section-content">
+                            <div class="form-row"><label class="form-label">Opening Line</label><input type="text" class="form-control" id="openingLine" value="Together with their families" onkeyup="updatePrompt()"></div>
+                            <div class="form-row"><label class="form-label">[Text: "invite you to celebrate the marriage of"]</label><input type="text" class="form-control" id="textKi" value="invite you to celebrate the marriage of" onkeyup="updatePrompt()"></div>
+                            <div class="global-divider">💐 💐 💐</div>
+                            <div class="form-row"><label class="form-label">Partner 1 Name</label><input type="text" class="form-control" id="brideName" value="Enter Your Name" onkeyup="updatePrompt()"></div>
+                            <div class="form-row"><label class="form-label">Connecting Word</label><input type="text" class="form-control" id="connectingWord" value="&" onkeyup="updatePrompt()"></div>
+                            <div class="form-row"><label class="form-label">Partner 2 Name</label><input type="text" class="form-control" id="groomName" value="Enter Your Partner Name" onkeyup="updatePrompt()"></div>
+                            <div class="form-row"><label class="form-label">[Text: "on their wedding day"]</label><input type="text" class="form-control" id="textBandhan" value="on their wedding day" onkeyup="updatePrompt()"></div>
+                            <div class="global-divider">💐 💐 💐</div>
+                            <div class="form-row"><label class="form-label">Subheading</label><input type="text" class="form-control" id="subheading" value="You are cordially invited" onkeyup="updatePrompt()"></div>
+                            <div class="form-row"><label class="form-label">Enter Your Parents Name / Hosts</label><input type="text" class="form-control" id="brideParents" value="Mr. Sudheer Sharma & Miss. Shusma Sharma" onkeyup="updatePrompt()"></div>
+                            <div class="form-row"><label class="form-label">Enter Your Partner Name Parents / Hosts</label><input type="text" class="form-control" id="groomParents" value="Mr. Ramesh Singh & Miss. Sudha Singh" onkeyup="updatePrompt()"></div>
+                            <div class="global-divider">💐 💐 💐</div>
+                            <div id="functionsContainer">
+                                <div class="function-card">
+                                    <span class="remove-function" onclick="removeFunction(this)"><i class="fas fa-times"></i></span>
+                                    <div class="form-row"><label class="form-label">Event / Function</label><input type="text" class="form-control function-name" value="Rehearsal Dinner" onkeyup="updatePrompt()"></div>
+                                    <div class="form-row"><label class="form-label">Date & Time</label><input type="text" class="form-control function-datetime" value="June 14, 2025 · 6:00 PM" onkeyup="updatePrompt()"></div>
+                                    <div class="form-row"><label class="form-label">Venue</label><input type="text" class="form-control function-venue" value="The Riverside Hotel" onkeyup="updatePrompt()"></div>
+                                </div>
+                            </div>
+                            <button class="add-function-btn" onclick="addFunction()"><i class="fas fa-plus"></i> Add another event</button>
+                            <div class="global-divider">💐 💐 💐</div>
+                            <div class="form-row"><label class="form-label">Ceremony Date</label><input type="text" class="form-control" id="weddingDate" value="June 15, 2025" onkeyup="updatePrompt()"></div>
+                            <div class="form-row"><label class="form-label">Ceremony Time</label><input type="text" class="form-control" id="weddingTime" value="4:00 PM" onkeyup="updatePrompt()"></div>
+                            <div class="form-row"><label class="form-label">Ceremony Venue</label><input type="text" class="form-control" id="venue" value="St. Patrick's Cathedral, New York" onkeyup="updatePrompt()"></div>
+                            <div class="global-divider">💐 💐 💐</div>
+                            <div class="form-row"><label class="form-label">Closing Line</label><input type="text" class="form-control" id="closingLine" value="Dinner and dancing to follow. Your presence is the greatest gift." onkeyup="updatePrompt()"></div>
+                            <div class="form-row"><label class="form-label">RSVP / Contact</label><input type="text" class="form-control" id="rsvp" value="RSVP: rsvp@watson-smith.com · (212) 555-1234" onkeyup="updatePrompt()"></div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Special Effects -->
+                    <div class="section" id="section5">
+                        <div class="section-header" onclick="toggleSection(5)"><span><i class="fas fa-star" style="margin-right: 10px; color: #1e3c5c;"></i> Special Effects</span><i class="fas fa-chevron-right"></i></div>
+                        <div class="section-content">
+                            <div class="form-row">
+                                <label><input type="checkbox" class="highlight" value="gold foil shimmer" checked onchange="updatePrompt()"> Gold foil shimmer</label><br>
+                                <label><input type="checkbox" class="highlight" value="embossed texture" checked onchange="updatePrompt()"> Embossed texture</label><br>
+                                <label><input type="checkbox" class="highlight" value="soft natural lighting" checked onchange="updatePrompt()"> Soft natural lighting</label><br>
+                                <label><input type="checkbox" class="highlight" value="shadow depth for realism" checked onchange="updatePrompt()"> Shadow depth</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Preview Panel -->
+            <div class="preview-panel">
+                <div class="preview-header"><h3><i class="fas fa-eye"></i> Your Live Prompt</h3><span style="background: #1e3c5c; color: white; padding: 5px 10px; border-radius: 20px;">🌐 </span></div>
+                <div class="preview-box" id="promptPreview">Generating prompt...</div>
+                <div class="preview-actions">
+                    <!-- FIXED: use only explicit event listener, but keep button clean -->
+                    <button class="btn btn-secondary" id="copyPromptBtn"><i class="fas fa-copy"></i> Copy Prompt</button>
+                    <button class="btn btn-primary" onclick="openAIModal()"><i class="fas fa-magic"></i> Generate with AI</button>
+                </div>
+                <div style="margin-top: 15px; text-align: center; color: #1e3c5c; font-size: 12px;"><i class="fas fa-globe"></i> Any country · Any culture <i class="fas fa-heart"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        // ===== all original functions kept, with robust copy for mobile =====
+        function toggleCustomSize(show) {
+            document.getElementById('customSizeInput').style.display = show ? 'block' : 'none';
+            if (!show) document.getElementById('customSizeRadio').checked = false;
+            updatePrompt();
+        }
+
+        function getSelectedSize() {
+            const radios = document.getElementsByName('size');
+            for (let r of radios) if (r.checked) {
+                if (r.value === 'custom') return document.getElementById('customSizeValue').value.trim() || 'custom size';
+                return r.value;
+            }
+            return '5x7 inch';
+        }
+
+        function showToast(msg, col) { 
+            let t = document.getElementById('toast'); 
+            document.getElementById('toast-message').innerText = msg; 
+            t.style.backgroundColor = col || '#1e3c5c'; 
+            t.style.display = 'flex'; 
+            setTimeout(()=> t.style.display='none', 3000); 
+        }
+
+        function toggleSection(n) { 
+            document.getElementById(`section${n}`).classList.toggle('active'); 
+        }
+
+        function setColors(p, s) { 
+            document.getElementById('primaryColor').value = p; 
+            document.getElementById('secondaryColor').value = s; 
+            document.getElementById('primaryColorPicker').value = p; 
+            document.getElementById('secondaryColorPicker').value = s; 
+            updatePrompt(); 
+        }
+
+        function addFunction() {
+            let c = document.getElementById('functionsContainer');
+            let d = document.createElement('div'); d.className = 'function-card';
+            d.innerHTML = `<span class="remove-function" onclick="removeFunction(this)"><i class="fas fa-times"></i></span>
+                <div class="form-row"><label class="form-label">Event Name</label><input type="text" class="form-control function-name" value="Wedding Reception" onkeyup="updatePrompt()"></div>
+                <div class="form-row"><label class="form-label">Date & Time</label><input type="text" class="form-control function-datetime" value="June 15, 2025 · 7:00 PM" onkeyup="updatePrompt()"></div>
+                <div class="form-row"><label class="form-label">Venue</label><input type="text" class="form-control function-venue" value="The Grand Ballroom" onkeyup="updatePrompt()"></div>`;
+            c.appendChild(d); updatePrompt();
+        }
+
+        function removeFunction(e) { 
+            if(document.querySelectorAll('.function-card').length>1) { 
+                e.closest('.function-card').remove(); 
+                updatePrompt(); 
+            } 
+        }
+
+        function updateThemeFromCountry() {
+            let sel = document.getElementById('theme');
+            let prim = sel.options[sel.selectedIndex]?.getAttribute('data-primary') || '#1e3c5c';
+            let sec = sel.options[sel.selectedIndex]?.getAttribute('data-secondary') || '#f4c542';
+            setColors(prim, sec);
+        }
+
+        function generatePrompt() {
+            const sz = getSelectedSize(), res = document.getElementById('resolution').value, cm = document.getElementById('colorMode').value;
+            const theme = document.getElementById('theme').value, pCol = document.getElementById('primaryColor').value, sCol = document.getElementById('secondaryColor').value;
+            const tex = document.getElementById('texture').value, bor = document.getElementById('border').value, mot = document.getElementById('motif').value;
+            const lay = document.getElementById('layout').value, fnt = document.getElementById('fontStyle').value, fx = document.getElementById('textEffect').value;
+            const op = document.getElementById('openingLine').value, ki = document.getElementById('textKi').value, bName = document.getElementById('brideName').value;
+            const con = document.getElementById('connectingWord').value, gName = document.getElementById('groomName').value, band = document.getElementById('textBandhan').value;
+            const sub = document.getElementById('subheading').value, bPar = document.getElementById('brideParents').value, gPar = document.getElementById('groomParents').value;
+            const wDate = document.getElementById('weddingDate').value, wTime = document.getElementById('weddingTime').value, ven = document.getElementById('venue').value;
+            const clos = document.getElementById('closingLine').value, rsv = document.getElementById('rsvp').value;
+            let highlights = []; 
+            document.querySelectorAll('.highlight:checked').forEach(cb=> highlights.push(cb.value));
+
+            let prompt = `Create a luxurious, ${sz} wedding invitation card design. The style is ${theme}. The card is ${res}, ${cm}.\n\n`;
+            prompt += `Primary palette: ${pCol} and ${sCol}. Background texture: ${tex}. Border: ${bor}. Central motif: ${mot}. Layout: ${lay}.\n\n`;
+            prompt += `Typography: ${fnt}, with ${fx} effect. Text arranged hierarchically:\n\n`;
+            prompt += `"${op}"\n"${ki}"\n\n${bName} ${con} ${gName}\n\n"${band}"\n\n${sub}\n${bPar}\n${gPar}\n\n`;
+            document.querySelectorAll('.function-card').forEach(c=> {
+                prompt += `• ${c.querySelector('.function-name').value}: ${c.querySelector('.function-datetime').value}, ${c.querySelector('.function-venue').value}\n`;
+            });
+            prompt += `\nCeremony: ${wDate} at ${wTime}, ${ven}\n\n"${clos}"\n${rsv}\n\n`;
+            if(highlights.length) prompt += `Apply ${highlights.join(', ')} for a realistic, luxurious finish.`;
+            return prompt;
+        }
+
+        function updatePrompt() { 
+            document.getElementById('promptPreview').innerText = generatePrompt(); 
+        }
+
+        // *** ROBUST COPY FUNCTION (works on mobile) ***
+        function copyPrompt() {
+            const promptText = document.getElementById('promptPreview').innerText;
+
+            // Modern async clipboard with fallback
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(promptText).then(() => {
+                    showToast('✅ Prompt copied!');
+                }).catch(err => {
+                    fallbackCopy(promptText);
+                });
+            } else {
+                fallbackCopy(promptText);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';  // avoid scrolling to bottom
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast('✅ Prompt copied!');
+            } catch (err) {
+                showToast('❌ Copy failed, select manually', '#b13e3e');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Modal functions
+        function openAIModal() {
+            document.getElementById('aiModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('aiModal').style.display = 'none';
+        }
+
+        function openChatGPT() {
+            const prompt = encodeURIComponent(document.getElementById('promptPreview').innerText);
+            window.open(`https://chatgpt.com/images?prompt=${prompt}`, '_blank');
+            closeModal();
+            showToast('🚀 Opening ChatGPT with your prompt!');
+        }
+
+        function openGemini() {
+            copyPrompt();
+            window.open('https://gemini.google.com', '_blank');
+            closeModal();
+            showToast('✅ Prompt copied! Opening Google Gemini');
+        }
+
+        function copyPromptOnly() {
+            copyPrompt();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('aiModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        window.onload = function() {
+            // initial active
+            document.getElementById('section1').classList.add('active');
+            
+            // live preview listeners
+            document.querySelectorAll('input, select, textarea').forEach(i => 
+                i.addEventListener('change', updatePrompt)
+            );
+            document.querySelectorAll('input[type="text"], input[type="color"], textarea, select').forEach(i => 
+                i.addEventListener('keyup', updatePrompt)
+            );
+            document.getElementById('customSizeValue').addEventListener('keyup', updatePrompt);
+            
+            // *** CRITICAL: attach copy button handler (by id, no onclick attr) ***
+            const copyBtn = document.getElementById('copyPromptBtn');
+            if (copyBtn) {
+                // remove any previous onclick to avoid double
+                copyBtn.removeAttribute('onclick');
+                copyBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    copyPrompt();
+                });
+            }
+            
+            // initial prompt generation
+            updatePrompt();
+        };
+    </script> -->
+</body>
+</html>
